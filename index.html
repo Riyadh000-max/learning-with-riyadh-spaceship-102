@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Operation Alpha-Sector</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,6 +13,20 @@
         <canvas id="gameCanvas" width="1280" height="720"></canvas>
         <div id="ui-layer"></div>
     </div>
+
+    <!-- Holographic Mobile Controls -->
+    <div id="mobile-controls">
+        <div id="dpad">
+            <button id="btn-up" class="control-btn">▲</button>
+            <div class="dpad-middle">
+                <button id="btn-left" class="control-btn">◀</button>
+                <button id="btn-right" class="control-btn">▶</button>
+            </div>
+            <button id="btn-down" class="control-btn">▼</button>
+        </div>
+        <button id="btn-fire" class="control-btn big-btn">FIRE</button>
+    </div>
+
     <script type="module" src="src/app.js"></script>
 </body>
 

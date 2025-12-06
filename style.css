@@ -32,3 +32,81 @@ canvas {
     flex-direction: column;
     justify-content: space-between;
 }
+
+/* Mobile Controls */
+#mobile-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    pointer-events: none;
+    /* Let touches pass through to buttons */
+    z-index: 1000;
+    user-select: none;
+}
+
+.control-btn {
+    background: rgba(0, 255, 255, 0.2);
+    border: 2px solid cyan;
+    color: cyan;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    pointer-events: auto;
+    /* Enable interaction */
+    user-select: none;
+    touch-action: none;
+    /* Prevent browser zooming/scrolling */
+    cursor: pointer;
+}
+
+.control-btn:active {
+    background: rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 20px cyan;
+    transform: scale(0.95);
+}
+
+.big-btn {
+    width: 80px;
+    height: 80px;
+    border-color: #ff3333;
+    color: #ff3333;
+    background: rgba(255, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.big-btn:active {
+    background: rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 20px #ff0000;
+}
+
+#dpad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dpad-middle {
+    display: flex;
+    gap: 60px;
+    /* Space for middle */
+}
+
+/* Hide on Desktop */
+@media (min-width: 900px) {
+    #mobile-controls {
+        display: none;
+    }
+}

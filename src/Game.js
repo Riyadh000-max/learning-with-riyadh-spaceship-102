@@ -229,7 +229,7 @@ export class Game {
             context.textAlign = 'center';
             context.fillText('COMMANDER RAY', this.width / 2, this.height / 2 - 20);
             context.font = '20px Arial';
-            context.fillText('PRESS ENTER TO START', this.width / 2, this.height / 2 + 40);
+            context.fillText('PRESS ENTER OR TAP TO START', this.width / 2, this.height / 2 + 40);
             if (this.assets.errors.length > 0) this.drawErrors(context);
 
         } else if (this.gameState === 'PLAY') {
