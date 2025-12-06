@@ -11,7 +11,28 @@
 <body>
     <div id="game-container">
         <canvas id="gameCanvas" width="1280" height="720"></canvas>
-        <div id="ui-layer"></div>
+        <div id="ui-layer">
+            <div id="start-screen" class="hidden">TAP TO START</div>
+            <div id="mobile-controls">
+                <div id="dpad">
+                    <div class="dpad-row">
+                        <button id="btn-up" class="dpad-btn" data-key="ArrowUp">▲</button>
+                    </div>
+                    <div class="dpad-row">
+                        <button id="btn-left" class="dpad-btn" data-key="ArrowLeft">◀</button>
+                        <div class="dpad-spacer"></div>
+                        <button id="btn-right" class="dpad-btn" data-key="ArrowRight">▶</button>
+                    </div>
+                    <div class="dpad-row">
+                        <button id="btn-down" class="dpad-btn" data-key="ArrowDown">▼</button>
+                    </div>
+                </div>
+                <button id="btn-fire" class="fire-btn" data-key=" ">
+                    <div class="crosshair-h"></div>
+                    <div class="crosshair-v"></div>
+                </button>
+            </div>
+        </div>
     </div>
     <script type="module" src="src/app.js"></script>
 </body>

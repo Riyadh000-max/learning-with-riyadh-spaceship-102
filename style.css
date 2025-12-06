@@ -9,6 +9,8 @@ body {
     align-items: center;
     overflow: hidden;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 #game-container {
@@ -31,4 +33,149 @@ canvas {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+/* Start Screen Text */
+#start-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    pointer-events: auto;
+    cursor: pointer;
+
+    /* Styling */
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+    font-family: 'Courier New', Courier, monospace;
+    animation: blink 1.5s infinite;
+    z-index: 100;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Mobile Controls Container */
+#mobile-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 40px;
+    box-sizing: border-box;
+    pointer-events: none; /* Let clicks pass through empty areas */
+}
+
+/* D-Pad Styles */
+#dpad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.dpad-row {
+    display: flex;
+}
+
+.dpad-spacer {
+    width: 60px;
+    height: 60px;
+}
+
+.dpad-btn {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    background-color: rgba(0, 255, 255, 0.15); /* Semi-transparent Cyan */
+    border: 1px solid cyan;
+    border-radius: 10px; /* Slight rounded corners */
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px); /* Glassmorphism */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.1s;
+    /* Hexagonal feel via clip-path? User said "Slightly hexagonal or sleek squares".
+       Let's stick to sleek squares with rounded corners as implemented by border-radius for simplicity and better touch area. */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.dpad-btn:active, .dpad-btn.active {
+    background-color: rgba(0, 255, 255, 0.4);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    transform: scale(0.95);
+}
+
+/* Fire Button Styles */
+.fire-btn {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px; /* Align with bottom row of D-pad approx */
+    background-color: rgba(255, 0, 0, 0.2); /* Semi-transparent Red */
+    border: 2px solid red;
+    border-radius: 50%; /* Perfect circle */
+    position: relative;
+    pointer-events: auto;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    animation: pulse 2s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.fire-btn:active, .fire-btn.active {
+    background-color: rgba(255, 0, 0, 0.5); /* Brighter on touch */
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+    animation: none; /* Stop pulsing when pressed */
+    transform: scale(0.95);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); }
+    50% { box-shadow: 0 0 25px rgba(255, 0, 0, 0.6); border-color: #ff4d4d; }
+    100% { box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); }
+}
+
+/* Crosshair inside Fire Button */
+.crosshair-h {
+    position: absolute;
+    width: 60%;
+    height: 2px;
+    background-color: rgba(255, 0, 0, 0.8);
+}
+.crosshair-v {
+    position: absolute;
+    height: 60%;
+    width: 2px;
+    background-color: rgba(255, 0, 0, 0.8);
 }
